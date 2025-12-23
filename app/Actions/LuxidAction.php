@@ -2,9 +2,9 @@
 
 namespace App\Actions;
 
-use Luxid\Foundation\BaseAction as LuxidAction;
+use Luxid\Foundation\Action;
 
-abstract class BaseAction extends LuxidAction
+abstract class LuxidAction extends Action
 {
     // Custom app-specific methods can go here
     // All helper methods from LuxidAction are available via the ActionHelpers trait

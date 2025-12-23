@@ -1,9 +1,9 @@
 <?php
 namespace App\Actions;
 
-use App\Actions\BaseAction;
+use App\Actions\LuxidAction;
 
-class WelcomeAction extends BaseAction
+class WelcomeAction extends LuxidAction
 {
     public function index()
     {
