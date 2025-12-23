@@ -25,7 +25,14 @@
     "scripts": {
         "post-create-project-cmd": [
             "php -r \"copy('.env.example', '.env');\"",
-            "echo 'Luxid Framework installed successfully!'"
+            "ln -sf vendor/bin/juice juice 2>/dev/null || true",
+            "chmod +x vendor/bin/juice juice 2>/dev/null || true",
+            "echo 'Luxid Framework installed successfully!'",
+            "echo ''",
+            "echo ' Juice CLi is ready to use! Run:'",
+            "echo ' ./juice'",
+            "echo ' or'",
+            "echo ' php juice'"
         ]
     }
 }
