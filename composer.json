@@ -11,7 +11,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Luxid\\Framework\\": "config/"
         }
     },
     "authors": [
@@ -24,15 +25,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\"",
-            "[ -f vendor/bin/juice ] && ln -sf vendor/bin/juice juice || echo 'Juice CLI not found in vendor/bin'",
-            "[ -f vendor/bin/juice ] && chmod +x vendor/bin/juice || true",
-            "echo 'Luxid Framework installed successfully!'",
-            "echo ''",
-            "echo '🍋 To get started:'",
-            "echo '1. cd into your project directory'",
-            "echo '2. Configure your .env file'",
-            "echo '3. Run: php juice'"
+            "php -r \"if (file_exists('.env.example') && !file_exists('.env')) copy('.env.example', '.env');\"",
+            "Luxid\\Framework\\Kernel::postCreateProject"
         ]
     }
 }
