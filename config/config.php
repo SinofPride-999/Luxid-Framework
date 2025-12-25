@@ -1,14 +1,5 @@
 <?php
-// Configuration File - Simple cross-platform
-
-return [
-    'db' => [
-        'dsn' => self::getDatabaseDSN(),
-        'user' => $_ENV['DB_USER'] ?? 'root',
-        'password' => $_ENV['DB_PASSWORD'] ?? '',
-    ],
-    'userClass' => \App\Entities\User::class,
-];
+// Configuration File
 
 function getDatabaseDSN(): string
 {
@@ -40,3 +31,12 @@ function getDatabaseDSN(): string
     // Fallback to TCP
     return "mysql:host={$host};port={$port};dbname={$dbname}";
 }
+
+return [
+    'db' => [
+        'dsn' => getDatabaseDSN(), // ← Remove "self::"
+        'user' => $_ENV['DB_USER'] ?? 'root',
+        'password' => $_ENV['DB_PASSWORD'] ?? '',
+    ],
+    'userClass' => \App\Entities\User::class,
+];
