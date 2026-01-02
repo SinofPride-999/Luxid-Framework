@@ -4,8 +4,7 @@
 use App\Actions\WelcomeAction;
 use Luxid\Foundation\Application;
 
-/** @var \Luxid\Routing\Router $router */
-$router = Application::$app->router;
-
-// Single welcome route
-$router->get('/', [WelcomeAction::class, 'index']);
+route('welcome')
+    ->get('/')
+    ->uses(WelcomeAction::class, 'index')
+    ->open();
